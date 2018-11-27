@@ -41,4 +41,4 @@ EXPOSE 9000
 
 # Last but not least, define the command to run your app using CMD which defines your runtime.
 # Here we will use the basic npm start which will run node server.js to start your server:
-CMD [ "yarn", "serve" ]
+CMD [ "yarn", "start" ]
