@@ -4,8 +4,12 @@
 # An image is software you load into a container.
 
 # Use latest node version 9.x
-# FROM node:10.13.0-alpine
-FROM tarampampam/node:10.13-alpine
+FROM node:10.13.0-alpine
+# FROM tarampampam/node:10.13-alpine
+
+RUN apk --update add git openssh && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm /var/cache/apk/*
 
 # Create app directory
 WORKDIR /usr/app
@@ -23,15 +27,14 @@ RUN yarn install
 
 # To bundle your app's source code inside the Docker image, use the COPY instruction:
 COPY ./src ./src
-COPY jest.config.js .
-COPY tsconfig.json .
-COPY tslint.json .
+COPY ./public ./public
+
+# COPY jest.config.js .
+# COPY tsconfig.json .
+# COPY tslint.json .
 
 # Build and create /dist folder
-RUN yarn build
-
-# RUN echo "PORT=4001" >> .env
-# RUN echo "MONGO=..." >> .env
+# RUN yarn build
 
 RUN pwd
 RUN ls -al
