@@ -2,13 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './App.scss';
-import * as routes from 'routes';
-import Navigation from 'components/navigation/Navigation';
-import Home from 'components/Home';
-import Landing from 'components/Landing';
-import SignIn from 'components/account/SignIn';
-import SignUp from 'components/account/SignUp';
-import PassportForget from 'components/account/PassportForget';
+import * as routes from 'src/routes';
+import Navigation from 'src/components/navigation/Navigation';
+import Home from 'src/components/Home';
+import Landing from 'src/components/Landing';
+import SignIn from 'src/components/account/SignIn';
+import SignUp from 'src/components/account/SignUp';
+import PassportForget from 'src/components/account/PassportForget';
 
 
 export default function App() {

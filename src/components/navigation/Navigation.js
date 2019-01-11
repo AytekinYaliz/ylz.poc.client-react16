@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import * as routes from 'routes';
+import * as routes from 'src/routes';
 
 
 export default () => (
