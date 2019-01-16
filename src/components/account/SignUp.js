@@ -16,55 +16,61 @@ class SignUpForm extends Component {
       this.state = {
          username: '',
          email: '',
-         passwordOne: '',
-         passwordTwo: '',
+         password: '',
+         password2: '',
          error: null
       };
    }
-   onSubmit = event => {};
-   byPropKey = (propertyName, value) => () => ({
-      [propertyName]: value
-   });
+
+   onSubmit = event => {
+      event.preventDefault();
+
+      const { username, email, password } = this.state;
+
+      new Promise((res, rej) => rej(123))
+         .then(data => {
+            console.log( data );
+         })
+         .catch(err => {
+            console.log( 'ERR', err );
+         });
+   };
+   onChange = propertyName => event => {
+      let value = event.target.value;
+      this.setState(() => ({ [propertyName]: value }));
+   };
 
    render() {
-      const { username, email, passwordOne, passwordTwo, error } = this.state;
+      const { username, email, password, password2, error } = this.state;
       const isInvalid =
          email === '' ||
          username === '' ||
-         passwordOne !== passwordTwo ||
-         passwordOne === '';
+         password !== password2 ||
+         password === '';
 
       return (
          <form onSubmit={this.onSubmit}>
             <input
                value={username}
-               onChange={event =>
-                  this.setState(this.byPropKey('username', event.target.value))
-               }
+               onChange={this.onChange('username')}
                type="text"
                placeholder="Full Name"
             />
             <input
                value={email}
-               onChange={event =>
-                  this.setState(this.byPropKey('email', event.target.value))
-               }
+               onChange={this.onChange('email')}
                type="text"
                placeholder="Email Address"
             />
             <input
-               value={passwordOne}
-               onChange={event =>
-                  this.setState(this.byPropKey('passwordOne', event.target.value))
-               }
+               value={password}
+               onChange={this.onChange('password')}
                type="password"
                placeholder="Password"
             />
             <input
-               value={passwordTwo}
-               onChange={event =>
-                  this.setState(this.byPropKey('passwordTwo', event.target.value))
-               }
+               value={password2}
+               onChange={this.onChange('password2')}
                type="password"
                placeholder="Confirm Password"
             />
