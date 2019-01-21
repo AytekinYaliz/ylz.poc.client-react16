@@ -11,18 +11,15 @@ import SignUp from 'src/components/account/SignUp';
 import PassportForget from 'src/components/account/PassportForget';
 
 
-export default function App() {
-   return (
-      <Router>
-         <>
-            <Navigation />
-            <hr />
-            <Route exact path={routes.LANDING} component={() => <Landing />} />
-            <Route exact path={routes.HOME} component={() => <Home />} />
-            <Route exact path={routes.SIGN_IN} component={() => <SignIn />} />
-            <Route exact path={routes.SIGN_UP} component={() => <SignUp />} />
-            <Route exact path={routes.PASSWORD_FORGET} component={() => <PassportForget />} />
-         </>
-      </Router>
-   );
-}
+export default () =>
+   <Router>
+      <>
+         <Navigation />
+         <hr />
+         <Route exact path={routes.LANDING} component={() => <Landing />} />
+         <Route exact path={routes.HOME} component={() => <Home />} />
+         <Route exact path={routes.SIGN_IN} component={() => <SignIn />} />
+         <Route exact path={routes.SIGN_UP} component={() => <SignUp />} />
+         <Route exact path={routes.PASSWORD_FORGET} component={() => <PassportForget />} />
+      </>
+   </Router>
