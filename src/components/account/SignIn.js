@@ -27,7 +27,7 @@ class SignInForm extends Component {
       const { email, password } = this.state;
       const { history } = this.props;
 
-      new Promise((res, rej) => res(222))
+      new  Promise((res, rej) => res(222))
          .then(data => {
             console.log( data );
             history.push(routes.HOME);
